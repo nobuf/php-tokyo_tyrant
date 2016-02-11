@@ -425,7 +425,7 @@ PHP_METHOD(tokyotyrant, get)
 	
 	PHP_TOKYO_CONNECTED_OBJECT(intern);
 	
-	if (Z_TYPE_P(key) == IS_ARRAY) {
+	if (Z_TYPE_P(zv_key) == IS_ARRAY) {
 		TCMAP *map = php_tt_zval_to_tcmap(zv_key, 1);
 		tcrdbget3(intern->conn->rdb, map);
 
@@ -471,7 +471,6 @@ PHP_METHOD(tokyotyrant, add)
 	zval *zv_value;
 	zend_bool status = 1;
 
-	char *key, *kbuf;
 	int key_len = 0, new_len, retint;
 	long type = 0;
 	zval *value;

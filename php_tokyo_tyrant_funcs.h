@@ -41,6 +41,6 @@ zend_bool php_tt_iterator_object_init(php_tokyo_tyrant_iterator_object *iterator
 
 void php_tt_tclist_to_array(TCRDB *rdb, TCLIST *res, zval *container TSRMLS_DC);
 
-char *php_tt_prefix(char *key, int key_len, int *new_len TSRMLS_DC);
+zend_string *php_tt_prefix(zend_string *key);
 
 #endif
